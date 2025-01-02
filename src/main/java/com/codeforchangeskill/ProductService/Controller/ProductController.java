@@ -17,12 +17,20 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    /**
+     * Handles the HTTP POST request to add a new product.
+     *
+     * @param productRequest the request containing product details such as name, price, and quantity
+     * @return a ResponseEntity containing the unique ID of the newly created product, along with an HTTP status code of CREATED
+     */
     @PostMapping
-    public ResponseEntity<Long> addProduct(@RequestBody ProductRequest productRequest){
+    public ResponseEntity<Long> addProduct(@RequestBody ProductRequest productRequest) {
 
-        long productId=productService.addProduct(productRequest);
+        long productId = productService.addProduct(productRequest);
         //send the data pack to client request
         return new ResponseEntity<>(productId, HttpStatus.CREATED);
     }
+
+
 
 }

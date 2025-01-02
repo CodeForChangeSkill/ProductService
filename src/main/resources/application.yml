@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8182
 
 logging:
   level:
@@ -12,6 +12,5 @@ spring:
     password: root@123
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
     hibernate:
       ddl-auto: update
