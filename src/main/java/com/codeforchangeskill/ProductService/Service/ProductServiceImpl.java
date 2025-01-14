@@ -4,6 +4,7 @@ import com.codeforchangeskill.ProductService.Entity.Product;
 import com.codeforchangeskill.ProductService.Model.ProductRequest;
 import com.codeforchangeskill.ProductService.Model.ProductResponse;
 import com.codeforchangeskill.ProductService.Repository.ProductRepository;
+import com.codeforchangeskill.ProductService.exception.ProductServiceCustomException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,9 @@ public class ProductServiceImpl implements ProductService{
         //Now define the Product with findbyId method
         Product product
                 =productRepository.findById(productId)/*orElsethrow used here since it thows optional response*/
-                .orElseThrow(()-> new RuntimeException("Product with given id not found"));
+                //HERE now instead of RUntie we will be using our Customized exception
+                //.orElseThrow(()-> new RuntimeException()"Product with given id not found");
+                .orElseThrow(()-> new ProductServiceCustomException("Product with given id not found","PRODUCT_NOT_FOUND"));
   //Now suppose we got the product then we need to convert it into Product response format,
   // for that we can use builder pattern or bean util as well to create our object.
         ProductResponse productResponse = new ProductResponse();
