@@ -1,10 +1,10 @@
 package com.codeforchangeskill.ProductService.Entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long ProductId;
+    private long productId;
 
    @Column(name ="Product_Name")
     private String productName;
