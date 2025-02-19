@@ -69,7 +69,9 @@ public class ProductServiceImpl implements ProductService{
             throw new ProductServiceCustomException(
                     "Product does not have sufficient quantity",
                     "INNSUFFICENT_QUANITY");
+
         }
+
         product.setQuantity(product.getQuantity()-quantity);
         productRepository.save(product);
         log.info("Product quantity updated successfully");
